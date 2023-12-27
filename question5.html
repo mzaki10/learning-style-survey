@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Style Survey - Question 5</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="survey-container">
+    <div id="question-container">
+      <h2 id="question-text">Question 5: What's the best way for you to study for a test?</h2>
+      <div class="answer-options">
+        <label><input type="radio" name="q5" value="1">Read the book or your notes and review pictures or charts</label>
+        <label><input type="radio" name="q5" value="2">Have someone ask you questions that you can answer out loud</label>
+        <label><input type="radio" name="q5" value="3">Make up index cards that you can review</label>
+      </div>
+      <p id="error-message" class="hidden">Please select an answer before proceeding.</p>
+      <button onclick="nextQuestion()">Next</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
