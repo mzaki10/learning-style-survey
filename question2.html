@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Style Survey - Question 2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="survey-container">
+    <div id="question-container">
+      <h2 id="question-text">Question 2: When you are not sure how to spell a word, what are you most likely to do?</h2>
+      <div class="answer-options">
+        <label><input type="radio" name="q2" value="1">Write it down to see if it looks right</label>
+        <label><input type="radio" name="q2" value="2">Spell it out loud to see if it sounds right</label>
+        <label><input type="radio" name="q2" value="3">Trace the letters in the air (finger spelling)</label>
+      </div>
+      <p id="error-message" class="hidden">Please select an answer before proceeding.</p>
+      <button onclick="nextQuestion()">Next</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+  </html>

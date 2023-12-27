@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Style Survey - Question 6</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="survey-container">
+    <div id="question-container">
+      <h2 id="question-text">Question 6: What's the best way for you to learn about how something works (like a computer or a video game)?</h2>
+      <div class="answer-options">
+        <label><input type="radio" name="q6" value="1">Get someone to show you</label>
+        <label><input type="radio" name="q6" value="2">Read about it or listen to someone explain it</label>
+        <label><input type="radio" name="q6" value="3">Figure it out on your own</label>
+      </div>
+      <p id="error-message" class="hidden">Please select an answer before proceeding.</p>
+      <button onclick="nextQuestion()">Next</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+  </html>

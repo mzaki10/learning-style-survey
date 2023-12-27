@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Style Survey - Question 4</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="survey-container">
+    <div id="question-container">
+      <h2 id="question-text">Question 4: When you see the word "cat," what do you do first?</h2>
+      <div class="answer-options">
+        <label><input type="radio" name="q4" value="1">Picture a cat in your mind</label>
+        <label><input type="radio" name="q4" value="2">Say the word "cat" to yourself</label>
+        <label><input type="radio" name="q4" value="3">Think about being with a cat (petting it or hearing it purr)</label>
+      </div>
+      <p id="error-message" class="hidden">Please select an answer before proceeding.</p>
+      <button onclick="nextQuestion()">Next</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+  </html>

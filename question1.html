@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Style Survey - Question 1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="survey-container">
+    <div id="question-container">
+      <h2 id="question-text">Question 1: What kind of book would you like to read for fun?</h2>
+      <div class="answer-options">
+        <label><input type="radio" name="q1" value="1">A book with lots of pictures in it</label>
+        <label><input type="radio" name="q1" value="2">A book with lots of words in it</label>
+        <label><input type="radio" name="q1" value="3">A book with word searches or crossword puzzles</label>
+      </div>
+      <p id="error-message" class="hidden">Please select an answer before proceeding.</p>
+      <button onclick="nextQuestion()">Next</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
