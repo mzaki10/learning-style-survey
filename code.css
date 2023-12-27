@@ -5,7 +5,7 @@ body {
   background-color: #f4f4f4;
 }
 
-.container {
+#survey-container {
   max-width: 600px;
   margin: 20px auto;
   padding: 20px;
@@ -14,20 +14,18 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-button {
-  padding: 10px;
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+#question-container {
+  display: block;
 }
 
-button:hover {
-  background-color: #2980b9;
+.answer-options {
+  margin-top: 10px;
 }
 
-#results {
-  margin-top: 20px;
-  font-weight: bold;
+.hidden {
+  display: none;
+}
+
+#result-container {
+  text-align: center;
 }

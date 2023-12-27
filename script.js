@@ -1,37 +1,63 @@
-// Define an object to store user responses
-const userResponses = {};
+let currentQuestion = 1;
+let userResponses = {};
 
-// Function to calculate and display results
-function calculateResults() {
-  // Your learning style calculation logic here
-  // e.g., count the occurrences of 1, 2, and 3 in userResponses
+function nextQuestion() {
+  const selectedOption = document.querySelector(`input[name="q${currentQuestion}"]:checked`);
 
-  // Display results
-  const resultsDiv = document.getElementById("results");
-  resultsDiv.innerHTML = `
-    <p>Visual: ${visualPercentage}%</p>
-    <p>Auditory: ${auditoryPercentage}%</p>
-    <p>Tactile: ${tactilePercentage}%</p>
-  `;
+  if (selectedOption) {
+    userResponses[`q${currentQuestion}`] = selectedOption.value;
+    currentQuestion++;
+
+    if (currentQuestion <= 20) {
+      showQuestion();
+    } else {
+      showResults();
+    }
+  } else {
+    const errorMessage = document.getElementById("error-message");
+    errorMessage.classList.remove("hidden");
+  }
 }
 
-// Function to handle user responses
-function handleResponse(questionNumber, choice) {
-  userResponses[questionNumber] = choice;
+function showQuestion() {
+  const questionText = document.getElementById("question-text");
+  questionText.innerText = `Question ${currentQuestion}: What kind of book would you like to read for fun?`;
+
+  const errorMessage = document.getElementById("error-message");
+  errorMessage.classList.add("hidden");
+
+  const answerOptions = document.querySelectorAll(`input[name="q${currentQuestion}"]`);
+  answerOptions.forEach(option => (option.checked = false));
+
+  if (currentQuestion === 20) {
+    const nextButton = document.querySelector("button");
+    nextButton.innerText = "Show Results";
+  }
 }
 
-// Insert your survey questions dynamically
-const surveyContainer = document.querySelector(".container");
-surveyContainer.innerHTML = `
-  <!-- Question 1 -->
-  <div>
-    <p>What kind of book would you like to read for fun?</p>
-    <label><input type="radio" name="q1" onclick="handleResponse(1, 1)">A book with lots of pictures in it</label>
-    <label><input type="radio" name="q1" onclick="handleResponse(1, 2)">A book with lots of words in it</label>
-    <label><input type="radio" name="q1" onclick="handleResponse(1, 3)">A book with word searches or crossword puzzles</label>
-  </div>
+function showResults() {
+  const surveyContainer = document.getElementById("survey-container");
+  surveyContainer.style.display = "none";
 
-  <!-- Repeat for other questions -->
-`;
+  const resultContainer = document.getElementById("result-container");
+  resultContainer.classList.remove("hidden");
 
-// Add more questions as needed
+  const visualPercentage = calculatePercentage("1");
+  const auditoryPercentage = calculatePercentage("2");
+  const tactilePercentage = calculatePercentage("3");
+
+  const visualElement = document.getElementById("visual-percentage");
+  const auditoryElement = document.getElementById("auditory-percentage");
+  const tactileElement = document.getElementById("tactile-percentage");
+
+  visualElement.innerText = `Visual: ${visualPercentage}%`;
+  auditoryElement.innerText = `Auditory: ${auditoryPercentage}%`;
+  tactileElement.innerText = `Tactile: ${tactilePercentage}%`;
+}
+
+function calculatePercentage(answer) {
+  const count = Object.values(userResponses).filter(response => response === answer).length;
+  return ((count / 20) * 100).toFixed(2);
+}
+
+document.addEventListener("DOMContentLoaded", showQuestion);
